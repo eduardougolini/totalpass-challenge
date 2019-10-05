@@ -1,7 +1,7 @@
 <template>
     <div class="header-box">
         <div class="back-button" v-if="backButton">
-            <img src="@/assets/up-arrow.svg">
+            <img src="@/assets/left-arrow.svg">
         </div>
         <div>
             <h1>Cadastro</h1>
@@ -21,7 +21,7 @@ export default {
         backButton: {
             type: String,
             required: false,
-            default: () => ''
+            default: () => 'as'
         }
     }
 }
@@ -38,9 +38,9 @@ export default {
 
     .back-button {
         width: 25px;
-        transform: rotate(270deg);
         position: absolute;
         left: 15px;
+        top: 10px;
         color: #C2D6D7;
     }
 
