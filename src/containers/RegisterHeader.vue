@@ -21,7 +21,7 @@ export default {
         backButton: {
             type: String,
             required: false,
-            default: () => 'as'
+            default: () => ''
         }
     }
 }
