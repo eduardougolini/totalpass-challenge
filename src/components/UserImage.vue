@@ -7,6 +7,7 @@
             id="send-user-image" 
             type="file" 
             @change="sendUserImage"
+            accept="image/*"
         />
     </div>
 </template>
@@ -31,8 +32,6 @@ export default {
             reader.onload = (e) => {
                 this.userImage = e.target.result;
             };
-
-            console.log(this.userImage);
         }
     }
 }
