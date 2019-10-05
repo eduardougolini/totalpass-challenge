@@ -6,13 +6,8 @@
             <CustomInput :name="'Nome Completo'"/>
             <CustomInput :name="'CPF'"/>
             <CustomInput :name="'Celular'"/>
-            <input placeholder="Data de nascimento" type="text">
-            <select placeholder="Gênero">
-                <option value="" disabled selected>Gênero</option>
-                <option value="masculino">Masculino</option>
-                <option value="feminino">Feminino</option>
-                <option value="outro">Outro</option>
-            </select>
+            <CustomInput :name="'Data de nascimento'" :inputType="'date'" />
+            <CustomInput :name="'Gênero'" :inputType="'select'" :selectOptions="genderValues" />
         </form>
 
         <NextButton />
@@ -26,6 +21,29 @@
 
     export default {
         name: 'RegisterDataForm',
+        data() {
+            return {
+                genderValues: [
+                    {
+                        name: '',
+                        value: '',
+                        attributes: 'disabled selected'
+                    },
+                    {
+                        name: 'Masculino',
+                        value: 'masculino'
+                    },
+                    {
+                        name: 'Feminino',
+                        value: 'feminino'
+                    },
+                    {
+                        name: 'Outro',
+                        value: 'outro'
+                    }
+                ]
+            }
+        },
         components: {
             UserImage,
             NextButton,
