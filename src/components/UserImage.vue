@@ -1,13 +1,40 @@
 <template>
     <div class="content">
-        <img class="user-image" src="@/assets/user-default-image.svg">
-        <button>ENVIAR FOTO</button>
+        <img v-if="userImage" class="user-image" :src="userImage">
+        <img v-else class="user-image" src="@/assets/user-default-image.svg">
+        <button @click="chooseFiles">ENVIAR FOTO</button>
+        <input 
+            id="send-user-image" 
+            type="file" 
+            @change="sendUserImage"
+        />
     </div>
 </template>
 
 <script>
 export default {
-    name: 'UserImage'
+    name: 'UserImage',
+    data() {
+        return {
+            userImage: ''
+        }
+    },
+    methods: {
+        chooseFiles() {
+            document.getElementById('send-user-image').click()
+        },
+        sendUserImage(e) {
+            const file = e.target.files[0];
+
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = (e) => {
+                this.userImage = e.target.result;
+            };
+
+            console.log(this.userImage);
+        }
+    }
 }
 </script>
 
@@ -21,6 +48,13 @@ export default {
 
     .user-image {
         margin-right: 13px;
+        width: 73px;
+        height: 73px;
+        object-fit: scale-down;
+    }
+
+    #send-user-image {
+        display: none;
     }
 
     button {

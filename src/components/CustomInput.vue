@@ -42,7 +42,7 @@ export default {
         isRequired: {
             type: Boolean,
             required: false,
-            default: () => true
+            default: () => false
         },
         inputType: {
             type: String,
