@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="content">
         <img class="user-image" src="@/assets/user-default-image.svg">
         <button>ENVIAR FOTO</button>
     </div>
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style scoped>
-    .container {
+    .content {
         display: flex;
         justify-content: center;
         align-items: center;
