@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button>
+        <button @click="$emit('clicked-forward-button')">
             AVANÇAR
         </button>    
     </div>

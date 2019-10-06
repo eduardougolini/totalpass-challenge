@@ -1,1 +1,2 @@
 export const SET_USER_IMAGE = 'SET_USER_IMAGE';
+export const SET_REGISTER_DATA = 'SET_REGISTER_DATA';

@@ -33,7 +33,7 @@
             />
         </form>
 
-        <NextButton />
+        <NextButton @clicked-forward-button="setRegisterData(userModel)" />
     </div>
 </template>
 
@@ -83,6 +83,11 @@
         computed: {
             ...mapState(TOTAL_PASS, [
                 'userData'
+            ])
+        },
+        methods: {
+            ...mapActions(TOTAL_PASS, [
+                'setRegisterData'
             ])
         }
     }
