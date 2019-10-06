@@ -20,6 +20,7 @@ export default {
         padding-bottom: 15px;
         display: flex;
         justify-content: center;
+        height: calc(100vh - 125px);
     }
 
     .info-box {
@@ -27,7 +28,7 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 65%;
+        max-width: 250px;
     }
 
     h1 {
