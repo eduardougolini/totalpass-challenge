@@ -50,6 +50,11 @@
     import NextButton from '@/components/NextButton';
     import CustomInput from '@/components/CustomInput';
     import { TOTAL_PASS } from '@/store/modules';
+    import CPF from 'cpf-check';
+    
+    const cpfValidator = (cpf) => {
+        return CPF.validate(cpf);
+    };
 
     export default {
         name: 'RegisterDataForm',
@@ -114,7 +119,8 @@
                     required
                 },
                 cpf: {
-                    required
+                    required,
+                    cpfValidator
                 },
                 phone: {
                     required
