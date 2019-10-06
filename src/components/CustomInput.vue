@@ -53,6 +53,19 @@ export default {
             type: Array,
             required: false,
             default: () => []
+        },
+        value: {
+            type: String,
+            required: false,
+            default: () => ''
+        }
+    },
+    watch: {
+        inputValue(val) {
+            this.$emit('input', val);
+        },
+        selectValue(val) {
+            this.$emit('input', val);
         }
     }
 }

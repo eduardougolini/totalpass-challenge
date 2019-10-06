@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';
@@ -7,6 +5,9 @@ import mutations from './mutations';
 const state = {
   userData: {
     image: '',
+    name: '',
+    cpf: '',
+    phone: '',
   },
 };
 

@@ -3,15 +3,29 @@
         <UserImage />
 
         <form class="basic-data-form">
-            <CustomInput :name="'Nome Completo'"/>
-            <CustomInput :name="'CPF'"/>
-            <CustomInput :name="'Celular'"/>
             <CustomInput 
+                v-model="userModel.name"
+                :name="'Nome Completo'"
+                :value="userData.name"
+            />
+            <CustomInput
+                v-model="userModel.cpf"
+                :name="'CPF'"
+                :value="userData.cpf"
+            />
+            <CustomInput
+                v-model="userModel.phone"
+                :name="'Celular'"
+                :value="userData.phone"
+            />
+            <CustomInput 
+                v-model="userModel.birth"
                 :name="'Data de nascimento'" 
                 :inputType="'date'" 
                 :isRequired="false" 
             />
             <CustomInput 
+                v-model="userModel.gender"
                 :name="'Gênero'" 
                 :inputType="'select'" 
                 :selectOptions="genderValues" 
@@ -24,14 +38,22 @@
 </template>
 
 <script>
+    import { mapState, mapActions } from 'vuex';
+
     import UserImage from '@/components/UserImage';
     import NextButton from '@/components/NextButton';
     import CustomInput from '@/components/CustomInput';
+    import { TOTAL_PASS } from '@/store/modules';
 
     export default {
         name: 'RegisterDataForm',
         data() {
             return {
+                userModel: {
+                    name: '',
+                    cpf: '',
+                    phone: '' 
+                },
                 genderValues: [
                     {
                         name: '',
@@ -57,6 +79,11 @@
             UserImage,
             NextButton,
             CustomInput
+        },
+        computed: {
+            ...mapState(TOTAL_PASS, [
+                'userData'
+            ])
         }
     }
 </script>
