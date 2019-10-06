@@ -30,6 +30,7 @@ export default {
         display: flex;
         justify-content: center;
         margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .dot {
