@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuelidate from 'vuelidate';
-import VueMask from 'v-mask';
+import VueTheMask from 'ke-the-mask';
 import App from './App';
 import router from './router';
 import store from './store';
@@ -10,7 +10,7 @@ import store from './store';
 Vue.config.productionTip = false;
 
 Vue.use(Vuelidate);
-Vue.use(VueMask);
+Vue.use(VueTheMask);
 
 /* eslint-disable no-new */
 new Vue({

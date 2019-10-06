@@ -68,7 +68,7 @@ export default {
         format: {
             type: String,
             required: false,
-            default: () => ''
+            default: () => "X".repeat(40)
         }
     },
     watch: {
