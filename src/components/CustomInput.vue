@@ -42,7 +42,7 @@ export default {
         isRequired: {
             type: Boolean,
             required: false,
-            default: () => false
+            default: () => true
         },
         inputType: {
             type: String,
@@ -75,9 +75,14 @@ export default {
         display: block;
         width: 300px;
         border: none;
-        border-bottom: 1px solid #222222;
+        border-bottom: 1px solid #A5B7B8;
         background-color: #F7FAFA;
         box-sizing: content-box;
+    }
+
+    input:required,
+    select:required {
+        border-bottom: 1px solid #222222;
     }
 
     input:focus,
@@ -85,8 +90,22 @@ export default {
         outline: none;
     }
 
-    label {
+    input:required ~ label,
+    select:required ~ label {
         color: #222222; 
+        font-size: 16px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 10px;
+        transition: 0.2s ease all; 
+        -moz-transition: 0.2s ease all; 
+        -webkit-transition: 0.2s ease all;
+    }
+
+    label {
+        color: #A5B7B8; 
         font-size: 16px;
         font-weight: normal;
         position: absolute;

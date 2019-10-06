@@ -6,8 +6,17 @@
             <CustomInput :name="'Nome Completo'"/>
             <CustomInput :name="'CPF'"/>
             <CustomInput :name="'Celular'"/>
-            <CustomInput :name="'Data de nascimento'" :inputType="'date'" />
-            <CustomInput :name="'Gênero'" :inputType="'select'" :selectOptions="genderValues" />
+            <CustomInput 
+                :name="'Data de nascimento'" 
+                :inputType="'date'" 
+                :isRequired="false" 
+            />
+            <CustomInput 
+                :name="'Gênero'" 
+                :inputType="'select'" 
+                :selectOptions="genderValues" 
+                :isRequired="false" 
+            />
         </form>
 
         <NextButton />
