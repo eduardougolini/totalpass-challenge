@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import BasicDataRegister from '@/pages/BasicDataRegister';
 import AddressRegister from '@/pages/AddressRegister';
 import PlansList from '@/pages/PlansList';
+import RegistrationCompleted from '@/pages/RegistrationCompleted';
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/plans',
       name: 'PlansList',
       component: PlansList,
+    },
+    {
+      path: '/completed',
+      name: 'RegistrationCompleted',
+      component: RegistrationCompleted,
     },
   ],
 });
