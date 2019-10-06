@@ -1,25 +1,22 @@
 <template>
     <div class="container">
         <UserImage />
-
+        
         <form class="basic-data-form">
             <CustomInput 
                 v-model="userModel.name"
                 :name="'Nome Completo'"
-                :value="userData.name"
                 :customClasses="{ 'error': this.$v['userModel'].name.$dirty && this.$v['userModel'].name.$invalid }"
             />
             <CustomInput
                 v-model="userModel.cpf"
                 :name="'CPF'"
-                :value="userData.cpf"
                 :customClasses="{ 'error': this.$v['userModel'].cpf.$dirty && this.$v['userModel'].cpf.$invalid }"
                 :format="'###.###.###-##'"
             />
             <CustomInput
                 v-model="userModel.phone"
                 :name="'Celular'"
-                :value="userData.phone"
                 :customClasses="{ 'error': this.$v['userModel'].phone.$dirty && this.$v['userModel'].phone.$invalid }"
                 :format="'(##) #####-####'"
             />
@@ -60,13 +57,6 @@
         name: 'RegisterDataForm',
         data() {
             return {
-                userModel: {
-                    name: '',
-                    cpf: '',
-                    phone: '',
-                    birth: '',
-                    gender: ''
-                },
                 genderValues: [
                     {
                         name: '',
@@ -96,7 +86,14 @@
         computed: {
             ...mapState(TOTAL_PASS, [
                 'userData'
-            ])
+            ]),
+            userModel: {
+                get() {
+                    return {
+                        ...this.userData
+                    }
+                }
+            }
         },
         methods: {
             ...mapActions(TOTAL_PASS, [

@@ -22,8 +22,7 @@
         >
             <option 
                 v-for="option in selectOptions" 
-                :key="option.name" 
-                :value="option.value" 
+                :key="option.name"
                 :attr="option.attributes"
             >{{ option.name }}</option>
         </select>
@@ -40,8 +39,8 @@ export default {
     name: 'CustomInput',
     data() {
         return {
-            inputValue: '',
-            selectValue: ''
+            selectValue: '',
+            inputValue: this.value
         }
     },
     directives: {
@@ -67,15 +66,13 @@ export default {
             required: false,
             default: () => []
         },
-        value: {
-            type: String,
-            required: false,
-            default: () => ''
-        }, 
         customClasses: {
             type: Object,
             required: false,
             default: () => {}
+        },
+        value: {
+            required: true
         },
         format: {
             type: String,
