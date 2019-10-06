@@ -40,7 +40,7 @@ export default {
             'getRandomGif'
         ]),
         randomGif() {
-            return this.getRandomGif;
+            return this.getRandomGif();
         }
     }
 }
@@ -85,6 +85,7 @@ export default {
         text-align: center;
         color: #222222;
         margin: 15px 0;
+        padding: 0 20px;
     }
 
     .dotted-line {

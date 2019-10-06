@@ -1,8 +1,10 @@
 export default {
-  getRandomGif(state) {
+  getRandomGif: state => () => {
     const waitForGifs = () => {
       if (state.gymGifs.data !== undefined) {
         const randomPosition = Math.floor(Math.random() * state.gymGifs.data.length);
+
+        console.log(Math.floor(Math.random() * state.gymGifs.data.length));
 
         return state.gymGifs.data[randomPosition].images.fixed_height_small.url;
       }
