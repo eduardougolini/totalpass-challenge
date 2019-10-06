@@ -51,7 +51,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import { required } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
 import NextButton from '@/components/NextButton';
 import CustomInput from '@/components/CustomInput';
@@ -79,12 +79,43 @@ export default {
     computed: {
         ...mapState(TOTAL_PASS, [
             'addressData'
+        ]),
+        cep() {
+            return this.addressModel.cep
+        }
+    },
+    watch: {
+        async cep(val) {
+             if (this.$v['addressModel'].cep.$invalid) {
+                return;
+            }
+            
+            const cepInfo = await this.fetchCepData(val);
+
+            if (cepInfo) {
+                this.setAddressData({
+                    cep: val,
+                    address: cepInfo.logradouro || '',
+                    number: '',
+                    complement: '',
+                    district: cepInfo.bairro || '',
+                    city: cepInfo.localidade || '',
+                    state: cepInfo.uf || ''
+                });
+            }
+        }
+    },
+    methods: {
+        ...mapActions(TOTAL_PASS, [
+            'fetchCepData',
+            'setAddressData'
         ])
     },
     validations: {
         addressModel: {
             cep: {
-                required
+                required,
+                minLength: minLength(8)
             },
             address: {
                 required

@@ -10,7 +10,13 @@ const state = {
     phone: '',
   },
   addressData: {
-
+    cep: '',
+    address: '',
+    number: '',
+    complement: '',
+    district: '',
+    city: '',
+    state: '',
   },
 };
 
