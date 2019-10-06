@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import BasicDataRegister from '@/pages/BasicDataRegister';
+import AddressRegister from '@/pages/AddressRegister';
 
 Vue.use(Router);
 
@@ -10,6 +11,11 @@ export default new Router({
       path: '/',
       name: 'BasicDataRegister',
       component: BasicDataRegister,
+    },
+    {
+      path: '/address',
+      name: 'AddressRegister',
+      component: AddressRegister,
     },
   ],
 });

@@ -1,6 +1,10 @@
 <template>
     <div class="header-box">
-        <div class="back-button" v-if="backButton">
+        <div 
+            v-if="backButton"
+            @click="goBack"
+            class="back-button" 
+        >
             <img src="@/assets/left-arrow.svg">
         </div>
         <div>
@@ -22,6 +26,15 @@ export default {
             type: String,
             required: false,
             default: () => ''
+        }
+    },
+    methods: {
+        goBack () {
+            if (window.history.length > 1) {
+                this.$router.go(-1);
+            }
+            
+            this.$router.push('/');
         }
     }
 }

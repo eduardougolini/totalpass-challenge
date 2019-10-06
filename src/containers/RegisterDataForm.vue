@@ -33,7 +33,7 @@
             />
         </form>
 
-        <NextButton @clicked-forward-button="setRegisterData(userModel)" />
+        <NextButton @clicked-forward-button="validateAndGo()" />
     </div>
 </template>
 
@@ -88,7 +88,11 @@
         methods: {
             ...mapActions(TOTAL_PASS, [
                 'setRegisterData'
-            ])
+            ]),
+            validateAndGo() {
+                this.setRegisterData(this.userModel);
+                this.$router.push({ name: 'AddressRegister' });
+            }
         }
     }
 </script>
