@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <img v-if="userImage" class="user-image" :src="userImage">
+        <img v-if="userData.image" class="user-image" :src="userData.image">
         <img v-else class="user-image" src="@/assets/user-default-image.svg">
         <button @click="chooseFiles">ENVIAR FOTO</button>
         <input 
@@ -13,14 +13,20 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+import { TOTAL_PASS } from '@/store/modules';
+
 export default {
     name: 'UserImage',
-    data() {
-        return {
-            userImage: ''
-        }
+    computed: {
+        ...mapState(TOTAL_PASS, [
+            'userData'
+        ])
     },
     methods: {
+        ...mapActions(TOTAL_PASS, [
+            'setUserImage'
+        ]),
         chooseFiles() {
             document.getElementById('send-user-image').click()
         },
@@ -30,7 +36,7 @@ export default {
             let reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = (e) => {
-                this.userImage = e.target.result;
+                this.setUserImage(e.target.result);
             };
         }
     }
