@@ -1,10 +1,12 @@
 <template>
     <div class="container">
-        <div class="plan-info">
-            <p>Escolha seu plano</p>
-        </div>
+        <div>
+            <div class="plan-info">
+                <p>Escolha seu plano</p>
+            </div>
 
-        <PlanSlider />
+            <PlanSlider />
+        </div>
 
         <NextButton @clicked-forward-button="$router.push({ name: 'RegistrationCompleted' })" />
     </div>
@@ -28,6 +30,10 @@ export default {
         background-color: #F7FAFA;
         padding-top: 30px;
         padding-bottom: 15px;
+        height: calc(100vh - 165px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .plan-info {
