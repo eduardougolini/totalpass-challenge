@@ -2,46 +2,39 @@
     <div class="container">
         <form class="address-form">
             <CustomInput 
-                v-model="addressModel.cep"
+                v-model="cep"
                 :name="'CEP'"
-                :value="addressData.cep"
                 :customClasses="{ 'error': this.$v['addressModel'].cep.$dirty && this.$v['addressModel'].cep.$invalid }"
                 :format="'#####-###'"
             />
             <CustomInput 
                 v-model="addressModel.address"
                 :name="'Endereço'"
-                :value="addressData.address"
                 :customClasses="{ 'error': this.$v['addressModel'].address.$dirty && this.$v['addressModel'].address.$invalid }"
             />
             <CustomInput 
                 v-model="addressModel.number"
                 :name="'Número'"
-                :value="addressData.number"
                 :customClasses="{ 'error': this.$v['addressModel'].number.$dirty && this.$v['addressModel'].number.$invalid }"
             />
             <CustomInput 
                 v-model="addressModel.complement"
                 :name="'Complemento'"
-                :value="addressData.complement"
                 :isRequired="false"
             />
             <CustomInput 
                 v-model="addressModel.district"
                 :name="'Bairro'"
-                :value="addressData.district"
                 :isRequired="false"
             />
             <CustomInput 
                 v-model="addressModel.city"
                 :name="'Cidade'"
-                :value="addressData.city"
                 :customClasses="{ 'error': this.$v['addressModel'].city.$dirty && this.$v['addressModel'].city.$invalid }"
             />
             <CustomInput 
                 v-model="addressModel.state"
                 :name="'Estado'"
-                :value="addressData.state"
                 :customClasses="{ 'error': this.$v['addressModel'].state.$dirty && this.$v['addressModel'].state.$invalid }"
             />
         </form>
@@ -62,15 +55,7 @@ export default {
     name: 'RegisterAddressForm',
     data() {
         return {
-            addressModel: {
-                cep: '',
-                address: '',
-                number: '',
-                complement: '',
-                district: '',
-                city: '',
-                state: ''
-            }
+            addressInfo: {}
         }
     },
     components: {
@@ -81,34 +66,41 @@ export default {
         ...mapState(TOTAL_PASS, [
             'addressData'
         ]),
-        cep() {
-            return this.addressModel.cep
-        }
-    },
-    watch: {
-        async cep(val) {
-             if (this.$v['addressModel'].cep.$invalid) {
-                return;
+        addressModel: {
+            get: function () {
+                return {
+                    ...this.addressData,
+                    ...this.addressInfo
+                }
+            },
+            set: function (val) {
+                this.addressInfo = val;
             }
-            
-            const formatedCep = this.getFormattedCep(val);
+        },
+        cep: {
+            get: function () {
+                return this.addressModel.cep
+            },
+            set: async function (val) {
+                const formatedCep = this.getFormattedCep(val);
 
-            if (formatedCep.length != 8) {
-                return;
-            }
+                if (formatedCep.length != 8) {
+                    return;
+                }
 
-            const cepInfo = await this.fetchCepData(formatedCep);
+                const cepInfo = await this.fetchCepData(formatedCep);
 
-            if (cepInfo) {
-                this.setAddressData({
-                    cep: val,
-                    address: cepInfo.logradouro || '',
-                    number: '',
-                    complement: '',
-                    district: cepInfo.bairro || '',
-                    city: cepInfo.localidade || '',
-                    state: cepInfo.uf || ''
-                });
+                if (cepInfo) {
+                    this.addressModel = {
+                        cep: formatedCep,
+                        address: cepInfo.logradouro || '',
+                        number: '',
+                        complement: '',
+                        district: cepInfo.bairro || '',
+                        city: cepInfo.localidade || '',
+                        state: cepInfo.uf || ''
+                    };
+                }
             }
         }
     },
@@ -119,6 +111,17 @@ export default {
         ]),
         getFormattedCep(cep) {
             return cep.replace('-', '');
+        },
+        validateAndGo() {
+            this.$v.$touch();
+
+            if (this.$v.$invalid) {
+                return;
+            }
+            
+            this.setAddressData(this.addressModel);
+
+            this.$router.push({ name: 'PlansList' });
         }
     },
     validations: {
