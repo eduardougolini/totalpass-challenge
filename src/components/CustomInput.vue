@@ -261,6 +261,7 @@ export default {
         color: transparent; 
     }
     
+    .not-empty::-webkit-datetime-edit,
     :focus::-webkit-datetime-edit { 
         color: #000; 
     }
