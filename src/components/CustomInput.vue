@@ -3,7 +3,7 @@
         <input 
             v-if="!selectOptions.length"
             v-model="inputValue"
-            :class="{ 'not-empty': inputValue }" 
+            :class="{ 'not-empty': inputValue,  ...customClasses }" 
             :type="inputType" 
             :required="isRequired"
         >
@@ -58,6 +58,11 @@ export default {
             type: String,
             required: false,
             default: () => ''
+        }, 
+        customClasses: {
+            type: Object,
+            required: false,
+            default: () => {}
         }
     },
     watch: {
@@ -139,6 +144,13 @@ export default {
         color: #00B098;
     }
 
+    input.error ~ label, 
+    select.error ~ label {
+        top: -5px;
+        font-size: 12px;
+        color: #FF1133;
+    }
+
     .bar {
         position: relative; 
         display: block; 
@@ -156,6 +168,13 @@ export default {
         transition: 0.2s ease all; 
         -moz-transition: 0.2s ease all; 
         -webkit-transition: 0.2s ease all;
+    }
+
+    input.error ~ .bar:before, 
+    input.error ~ .bar:after, 
+    select.error ~ .bar:before, 
+    select.error ~ .bar:after {
+        background: #FF1133 !important;
     }
 
     .bar:before {

@@ -7,16 +7,19 @@
                 v-model="userModel.name"
                 :name="'Nome Completo'"
                 :value="userData.name"
+                :customClasses="{ 'error': this.$v['userModel'].name.$dirty && this.$v['userModel'].name.$invalid }"
             />
             <CustomInput
                 v-model="userModel.cpf"
                 :name="'CPF'"
                 :value="userData.cpf"
+                :customClasses="{ 'error': this.$v['userModel'].cpf.$dirty && this.$v['userModel'].cpf.$invalid }"
             />
             <CustomInput
                 v-model="userModel.phone"
                 :name="'Celular'"
                 :value="userData.phone"
+                :customClasses="{ 'error': this.$v['userModel'].phone.$dirty && this.$v['userModel'].phone.$invalid }"
             />
             <CustomInput 
                 v-model="userModel.birth"
@@ -39,6 +42,7 @@
 
 <script>
     import { mapState, mapActions } from 'vuex';
+    import { required } from 'vuelidate/lib/validators'
 
     import UserImage from '@/components/UserImage';
     import NextButton from '@/components/NextButton';
@@ -52,7 +56,9 @@
                 userModel: {
                     name: '',
                     cpf: '',
-                    phone: '' 
+                    phone: '',
+                    birth: '',
+                    gender: ''
                 },
                 genderValues: [
                     {
@@ -90,8 +96,27 @@
                 'setRegisterData'
             ]),
             validateAndGo() {
+                this.$v.$touch();
+
+                if (this.$v.$invalid) {
+                    return;
+                }
+                
                 this.setRegisterData(this.userModel);
                 this.$router.push({ name: 'AddressRegister' });
+            }
+        },
+        validations: {
+            userModel: {
+                name: {
+                    required
+                },
+                cpf: {
+                    required
+                },
+                phone: {
+                    required
+                },
             }
         }
     }
