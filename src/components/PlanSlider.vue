@@ -1,8 +1,8 @@
 <template>
     <div>
         <flickity ref="flickity" :options="slideOptions">
-            <MegaPlan />
-            <MegaPlan />
+            <PlanCard />
+            <PlanCard />
         </flickity>
     </div>
 </template>
@@ -10,13 +10,13 @@
 <script>
 import Flickity from 'vue-flickity';
 
-import MegaPlan from '@/components/plans/MegaPlan';
+import PlanCard from '@/components/PlanCard';
 
 export default {
     name: 'PlanSlider',
     components: {
         Flickity,
-        MegaPlan
+        PlanCard
     },
     data() {
         return {

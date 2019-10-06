@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'MegaPlan',
+    name: 'PlanCard',
     data() {
         return {
             title: 'MEGA',
