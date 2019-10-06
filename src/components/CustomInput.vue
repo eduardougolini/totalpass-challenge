@@ -1,12 +1,19 @@
 <template>
     <div class="group">
         <input 
-            v-if="!selectOptions.length"
+            v-if="!selectOptions.length && format.length"
             v-model="inputValue"
             :class="{ 'not-empty': inputValue,  ...customClasses }" 
             :type="inputType" 
             :required="isRequired"
             v-mask="format"
+        >
+        <input 
+            v-else-if="!selectOptions.length"
+            v-model="inputValue"
+            :class="{ 'not-empty': inputValue,  ...customClasses }" 
+            :type="inputType" 
+            :required="isRequired"
         >
         <select
             v-else
@@ -27,6 +34,8 @@
 </template>
 
 <script>
+import {mask} from 'ke-the-mask';
+
 export default {
     name: 'CustomInput',
     data() {
@@ -34,6 +43,9 @@ export default {
             inputValue: '',
             selectValue: ''
         }
+    },
+    directives: {
+        mask
     },
     props: {
         name: {
@@ -68,7 +80,7 @@ export default {
         format: {
             type: String,
             required: false,
-            default: () => "X".repeat(40)
+            default: () => ''
         }
     },
     watch: {
