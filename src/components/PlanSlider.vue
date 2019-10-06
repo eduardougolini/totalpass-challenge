@@ -1,8 +1,14 @@
 <template>
     <div>
         <flickity ref="flickity" :options="slideOptions">
-            <PlanCard />
-            <PlanCard />
+            <PlanCard 
+                v-for="plan of plans" 
+                :key="plan.title"
+                :title="plan.title"
+                :subtitle="plan.subtitle"
+                :description="plan.description"
+                :planValue="plan.planValue"
+            />
         </flickity>
     </div>
 </template>
@@ -22,9 +28,40 @@ export default {
         return {
             slideOptions: {
                 "pageDots": false,
-                "resize": false,
-                "wrapAround": true
-            }
+                "resize": false
+            },
+            plans: [
+                {
+                    title: 'MEGA',
+                    subtitle: 'PLANO FIT +',
+                    description: '<b>Bio ritmo:</b> Belém, Limeira, Piracicaba, Shopping Metropolitano, Centro, Chácara Santo Antônio, Continental, Santana, Santo André, São Caetano, Tamboré e West Plaza.',
+                    planValue: '100'
+                },
+                {
+                    title: 'FIT',
+                    subtitle: 'PLANO FIT ++',
+                    description: '<b>Bio ritmo:</b> Santo André, Shopping Metropolitano, Tamboré, Santana, Limeira, Piracicaba, Belém, West Plaza, Chácara Santo Antônio, Centro, São Caetano e Continental.',
+                    planValue: '200'
+                },
+                {
+                    title: 'OMEGA',
+                    subtitle: 'PLANO FIT +++',
+                    description: '<b>Bio ritmo:</b> West Plaza, Piracicaba, Santo André, Santana, Limeira, Tamboré, Chácara Santo Antônio, São Caetano, Centro, Belém, Continental e Shopping Metropolitano.',
+                    planValue: '300'
+                },
+                {
+                    title: 'BETA',
+                    subtitle: 'PLANO FIT ++++',
+                    description: '<b>Bio ritmo:</b> West Plaza, São Caetano, Belém, Chácara Santo Antônio, Santana, Shopping Metropolitano, Tamboré, Limeira, Continental, Santo André, Piracicaba, Centro.',
+                    planValue: '400'
+                },
+                {
+                    title: 'ULTRA',
+                    subtitle: 'PLANO FIT +++++',
+                    description: '<b>Bio ritmo:</b> Tamboré, Chácara Santo Antônio, Santana, São Caetano, Limeira, Santo André, Shopping Metropolitano, Centro, West Plaza, Piracicaba, Continental e Belém.',
+                    planValue: '500'
+                },
+            ]
         }
     }
 }

@@ -12,13 +12,23 @@
 <script>
 export default {
     name: 'PlanCard',
-    data() {
-        return {
-            title: 'MEGA',
-            subtitle: 'PLANO FIT +',
-            description: '<b>Bio ritmo:</b> Belém, Limeira, Piracicaba, Shopping Metropolitano, Centro, Chácara Santo Antônio, Continental, Santana, Santo André, São Caetano, Tamboré e West Plaza.',
-            planValue: '100'
-        }
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        subtitle: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true
+        },
+        planValue: {
+            type: String,
+            required: true
+        },
     }
 }
 </script>
