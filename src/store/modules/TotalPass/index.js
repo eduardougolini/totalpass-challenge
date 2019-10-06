@@ -9,6 +9,9 @@ const state = {
     cpf: '',
     phone: '',
   },
+  addressData: {
+
+  },
 };
 
 export default {

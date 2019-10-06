@@ -23,9 +23,9 @@ export default {
             required: true
         },
         backButton: {
-            type: String,
+            type: Boolean,
             required: false,
-            default: () => ''
+            default: () => false
         }
     },
     methods: {
