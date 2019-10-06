@@ -6,6 +6,7 @@
             :class="{ 'not-empty': inputValue,  ...customClasses }" 
             :type="inputType" 
             :required="isRequired"
+            v-mask="format"
         >
         <select
             v-else
@@ -63,6 +64,11 @@ export default {
             type: Object,
             required: false,
             default: () => {}
+        },
+        format: {
+            type: String,
+            required: false,
+            default: () => ''
         }
     },
     watch: {

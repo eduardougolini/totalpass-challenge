@@ -6,6 +6,7 @@
                 :name="'CEP'"
                 :value="addressData.cep"
                 :customClasses="{ 'error': this.$v['addressModel'].cep.$dirty && this.$v['addressModel'].cep.$invalid }"
+                :format="'#####-###'"
             />
             <CustomInput 
                 v-model="addressModel.address"
@@ -51,7 +52,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { required } from 'vuelidate/lib/validators'
 
 import NextButton from '@/components/NextButton';
 import CustomInput from '@/components/CustomInput';
@@ -90,7 +91,13 @@ export default {
                 return;
             }
             
-            const cepInfo = await this.fetchCepData(val);
+            const formatedCep = this.getFormattedCep(val);
+
+            if (formatedCep.length != 8) {
+                return;
+            }
+
+            const cepInfo = await this.fetchCepData(formatedCep);
 
             if (cepInfo) {
                 this.setAddressData({
@@ -109,13 +116,15 @@ export default {
         ...mapActions(TOTAL_PASS, [
             'fetchCepData',
             'setAddressData'
-        ])
+        ]),
+        getFormattedCep(cep) {
+            return cep.replace('-', '');
+        }
     },
     validations: {
         addressModel: {
             cep: {
-                required,
-                minLength: minLength(8)
+                required
             },
             address: {
                 required

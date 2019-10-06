@@ -14,12 +14,14 @@
                 :name="'CPF'"
                 :value="userData.cpf"
                 :customClasses="{ 'error': this.$v['userModel'].cpf.$dirty && this.$v['userModel'].cpf.$invalid }"
+                :format="'###.###.###-##'"
             />
             <CustomInput
                 v-model="userModel.phone"
                 :name="'Celular'"
                 :value="userData.phone"
                 :customClasses="{ 'error': this.$v['userModel'].phone.$dirty && this.$v['userModel'].phone.$invalid }"
+                :format="'(##) #####-####'"
             />
             <CustomInput 
                 v-model="userModel.birth"
