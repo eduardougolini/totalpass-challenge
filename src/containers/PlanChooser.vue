@@ -4,17 +4,21 @@
             <p>Escolha seu plano</p>
         </div>
 
+        <PlanSlider />
+
         <NextButton @clicked-forward-button="$router.push({ name: 'RegistrationCompleted' })" />
     </div>
 </template>
 
 <script>
 import NextButton from '@/components/NextButton';
+import PlanSlider from '@/components/PlanSlider';
 
 export default {
     name: 'planChooser',
     components: {
-        NextButton
+        NextButton,
+        PlanSlider
     }
 }
 </script>
