@@ -227,6 +227,13 @@ export default {
         animation: inputHighlighter 0.3s ease;
     }
 
+    select {
+        appearance:none;
+        background: url('../assets/select-arrow.svg');
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
     @-webkit-keyframes inputHighlighter {
         from { 
             background: #00B098; 
