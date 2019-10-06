@@ -6,10 +6,15 @@
         <h2>{{ subtitle }}</h2>
         <span v-html="description"></span>
         <h2 class="value-info">R$ {{ planValue }} / MÊS</h2>
+        <img :src="randomGif">
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
+import { TOTAL_PASS } from '@/store/modules';
+
 export default {
     name: 'PlanCard',
     props: {
@@ -29,6 +34,14 @@ export default {
             type: String,
             required: true
         },
+    },
+    computed: {
+        ...mapGetters(TOTAL_PASS, [
+            'getRandomGif'
+        ]),
+        randomGif() {
+            return this.getRandomGif;
+        }
     }
 }
 </script>
@@ -83,5 +96,9 @@ export default {
 
     .value-info {
         margin: 15px 0;
+    }
+
+    img {
+        margin-bottom: 15px;
     }
 </style>

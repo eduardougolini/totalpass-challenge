@@ -27,8 +27,9 @@ export default {
     data() {
         return {
             slideOptions: {
-                "pageDots": false,
-                "resize": false
+                pageDots: false,
+                resize: false,
+                imagesLoaded: true
             },
             plans: [
                 {

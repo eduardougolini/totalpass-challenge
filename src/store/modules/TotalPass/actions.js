@@ -1,6 +1,7 @@
 import * as Mutations from './mutationTypes';
 
 import ViacepService from '@/services/viacep.service';
+import GiphyService from '@/services/giphy.service';
 
 export default {
   setUserImage({ commit }, image) {
@@ -22,5 +23,14 @@ export default {
   },
   setAddressData({ commit }, data) {
     commit(Mutations.SET_ADDRESS_DATA, data);
+  },
+  async loadGymGifs({ commit }) {
+    try {
+      const { data } = await GiphyService.fetchGifs('gym');
+
+      commit(Mutations.SET_GYM_GIFS, data);
+    } catch (e) {
+      console.error('Falha ao trazer gifs aleatórios', e);
+    }
   },
 };

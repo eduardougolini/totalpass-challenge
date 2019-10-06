@@ -17,4 +17,7 @@ export default {
       Vue.set(state.addressData, key, value);
     }
   },
+  [Types.SET_GYM_GIFS](state, data) {
+    state.gymGifs = data;
+  },
 };

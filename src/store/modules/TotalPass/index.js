@@ -18,6 +18,7 @@ const state = {
     city: '',
     state: '',
   },
+  gymGifs: {},
 };
 
 export default {
