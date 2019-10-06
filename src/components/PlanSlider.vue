@@ -1,35 +1,45 @@
 <template>
     <div>
-        <flickity ref="flickity" :options="slideOptions">
-            <PlanCard 
-                v-for="plan of plans" 
+        <VueAgile
+            class="slider"
+            ref="carousel"
+            v-bind="slideOptions"
+        >
+            <div
+                v-for="plan of plans"
                 :key="plan.title"
-                :title="plan.title"
-                :subtitle="plan.subtitle"
-                :description="plan.description"
-                :planValue="plan.planValue"
-            />
-        </flickity>
+                class="slide-box"
+            >
+                <img class="left-arrow" src="@/assets/slider-arrow.svg" @click="$refs.carousel.goToPrev()" />
+                <PlanCard 
+                    :class="'slide'"
+                    :title="plan.title"
+                    :subtitle="plan.subtitle"
+                    :description="plan.description"
+                    :planValue="plan.planValue"
+                />
+                <img class="right-arrow" src="@/assets/slider-arrow.svg" @click="$refs.carousel.goToNext()" />
+            </div>
+        </VueAgile>
     </div>
 </template>
 
 <script>
-import Flickity from 'vue-flickity';
+import { VueAgile } from 'vue-agile';
 
 import PlanCard from '@/components/PlanCard';
 
 export default {
     name: 'PlanSlider',
     components: {
-        Flickity,
+        VueAgile,
         PlanCard
     },
     data() {
         return {
             slideOptions: {
-                pageDots: false,
-                resize: false,
-                imagesLoaded: true
+                dots: false,
+                navButtons: false
             },
             plans: [
                 {
@@ -67,3 +77,23 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .slider {
+        max-width: 415px;
+    }
+    
+    .slide-box {
+        display: flex; 
+        justify-content: center;
+    }
+
+    .left-arrow,
+    .right-arrow {
+        margin: 15px;
+    }
+
+    .right-arrow {
+        transform: rotate(180deg);
+    }
+</style>

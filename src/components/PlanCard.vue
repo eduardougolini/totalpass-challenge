@@ -48,7 +48,6 @@ export default {
 
 <style scoped>
     .carousel-cell {
-        width: 80%;
         background-color: white;
         display: flex;
         flex-direction: column;
