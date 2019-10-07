@@ -36,6 +36,8 @@
                 v-model="addressModel.state"
                 :name="'Estado'"
                 :customClasses="{ 'error': this.$v['addressModel'].state.$dirty && this.$v['addressModel'].state.$invalid }"
+                :inputType="'select'" 
+                :selectOptions="brazilianStates" 
             />
         </form>
 
@@ -64,7 +66,8 @@ export default {
     },
     computed: {
         ...mapState(TOTAL_PASS, [
-            'addressData'
+            'addressData',
+            'brazilianStates'
         ]),
         addressModel: {
             get: function () {
@@ -104,9 +107,15 @@ export default {
             }
         }
     },
+    async created() {
+        if (this.brazilianStates.length < 2) {
+            await this.loadBrazilianStates();
+        } 
+    },
     methods: {
         ...mapActions(TOTAL_PASS, [
             'fetchCepData',
+            'loadBrazilianStates',
             'setAddressData'
         ]),
         getFormattedCep(cep) {

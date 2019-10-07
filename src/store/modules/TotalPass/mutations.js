@@ -20,4 +20,12 @@ export default {
   [Types.SET_GYM_GIFS](state, data) {
     state.gymGifs = data;
   },
+  [Types.SET_BRAZILIAN_STATES](state, data) {
+    data.geonames.forEach((element) => {
+      state.brazilianStates.push({
+        name: element.adminCodes1.ISO3166_2,
+        value: element.adminCodes1.ISO3166_2.toLowerCase(),
+      });
+    });
+  },
 };
