@@ -1,8 +1,8 @@
-import * as Mutations from './mutationTypes';
-
 import ViacepService from '@/services/viacep.service';
 import GiphyService from '@/services/giphy.service';
 import GeonamesService from '@/services/geonames.service';
+
+import * as Mutations from './mutationTypes';
 
 export default {
   setUserImage({ commit }, image) {
