@@ -30,7 +30,7 @@ export default {
 
       commit(Mutations.SET_GYM_GIFS, data);
     } catch (e) {
-      console.error('Falha ao trazer gifs aleatórios', e);
+      console.error('Falha ao trazer gifs aleatÃ³rios', e);
     }
   },
 };
