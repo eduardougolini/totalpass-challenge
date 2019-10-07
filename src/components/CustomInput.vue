@@ -19,10 +19,12 @@
       v-else
       v-model="selectValue"
       :class="{ 'not-empty': selectValue }"
+      :required="isRequired"
     >
       <option
         v-for="option in selectOptions"
         :key="option.name"
+        :value="option.value"
         :attr="option.attributes"
       >{{ option.name }}</option>
     </select>
@@ -39,7 +41,7 @@ export default {
   name: 'CustomInput',
   data() {
     return {
-      selectValue: '',
+      selectValue: this.value,
       inputValue: this.value,
     };
   },
@@ -83,6 +85,7 @@ export default {
   watch: {
     value() {
       this.inputValue = this.value;
+      this.selectValue = this.value;
     },
     inputValue(val) {
       this.$emit('input', val);

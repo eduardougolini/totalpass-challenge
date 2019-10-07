@@ -19,13 +19,7 @@ const state = {
     state: '',
   },
   gymGifs: {},
-  brazilianStates: [
-    {
-      name: '',
-      value: '',
-      attributes: 'disabled selected',
-    },
-  ],
+  brazilianStates: [],
 };
 
 export default {
