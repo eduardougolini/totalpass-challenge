@@ -4,41 +4,41 @@
 
     <form class="basic-data-form">
       <CustomInput
-        v-model="userModel.name"
+        v-model="$v.name.$model"
         :name="'Nome Completo'"
         :customClasses="{
-          'error': this.$v['userModel'].name.$dirty
-            && this.$v['userModel'].name.$invalid
+          'error': $v.name.$dirty
+            && $v.name.$invalid
         }"
       />
       <CustomInput
-        v-model="userModel.cpf"
+        v-model="$v.cpf.$model"
         :name="'CPF'"
         :inputType="'tel'"
         :customClasses="{
-          'error': this.$v['userModel'].cpf.$dirty
-            && this.$v['userModel'].cpf.$invalid
+          'error': $v.cpf.$dirty
+            && $v.cpf.$invalid
         }"
         :format="'###.###.###-##'"
       />
       <CustomInput
-        v-model="userModel.phone"
+        v-model="$v.phone.$model"
         :name="'Celular'"
         :inputType="'tel'"
         :customClasses="{
-          'error': this.$v['userModel'].phone.$dirty
-            && this.$v['userModel'].phone.$invalid
+          'error': $v.phone.$dirty
+            && $v.phone.$invalid
         }"
         :format="'(##) #####-####'"
       />
       <CustomInput
-        v-model="userModel.birth"
+        v-model="birth"
         :name="'Data de nascimento'"
         :inputType="'date'"
         :isRequired="false"
       />
       <CustomInput
-        v-model="userModel.gender"
+        v-model="gender"
         :name="'Gênero'"
         :inputType="'select'"
         :selectOptions="genderValues"
@@ -66,6 +66,11 @@ export default {
   name: 'RegisterDataForm',
   data() {
     return {
+      name: '',
+      cpf: '',
+      phone: '',
+      birth: '',
+      gender: '',
       genderValues: [
         {
           name: '',
@@ -93,16 +98,20 @@ export default {
     CustomInput,
   },
   computed: {
-    ...mapState(TOTAL_PASS, [
-      'userData',
-    ]),
-    userModel: {
-      get() {
-        return {
-          ...this.userData,
-        };
-      },
-    },
+    ...mapState(TOTAL_PASS, {
+      stateName: state => state.userData.name,
+      stateCpf: state => state.userData.cpf,
+      statePhone: state => state.userData.phone,
+      stateBirth: state => state.userData.birth,
+      stateBirth: state => state.userData.birth,
+    })
+  },
+  mounted() {
+    this.name = this.stateName;
+    this.cpf = this.stateCpf;
+    this.phone = this.statePhone;
+    this.birth = this.stateBirth;
+    this.gender = this.stateGender;
   },
   methods: {
     ...mapActions(TOTAL_PASS, [
@@ -115,12 +124,18 @@ export default {
         return;
       }
 
-      this.setRegisterData(this.userModel);
+      this.setRegisterData({
+        name: this.name,
+        cpf: this.cpf,
+        phone: this.phone,
+        birth: this.birth,
+        gender: this.gender,
+      });
       this.$router.push({ name: 'AddressRegister' });
     },
   },
   validations: {
-    userModel: {
+    // userModel: {
       name: {
         required,
       },
@@ -131,7 +146,7 @@ export default {
       phone: {
         required,
       },
-    },
+    // },
   },
 };
 </script>

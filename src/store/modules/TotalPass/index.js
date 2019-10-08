@@ -8,6 +8,8 @@ const state = {
     name: '',
     cpf: '',
     phone: '',
+    birth: '',
+    gender: '',
   },
   addressData: {
     cep: '',
