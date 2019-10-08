@@ -1,0 +1,21 @@
+{
+  "name": "TotalPass",
+  "short_name": "TotalPass",
+  "description": "PWA do desafio da TotalPass",
+  "start_url": "/#/",
+  "display": "standalone",
+  "theme_color": "#00B098",
+  "background_color": "#00B098",
+  "icons": [
+    {
+      "src": "/totalpass.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/totalpass.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+  }
