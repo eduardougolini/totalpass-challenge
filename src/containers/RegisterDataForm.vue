@@ -14,6 +14,7 @@
       <CustomInput
         v-model="userModel.cpf"
         :name="'CPF'"
+        :inputType="'tel'"
         :customClasses="{
           'error': this.$v['userModel'].cpf.$dirty
             && this.$v['userModel'].cpf.$invalid
@@ -23,6 +24,7 @@
       <CustomInput
         v-model="userModel.phone"
         :name="'Celular'"
+        :inputType="'tel'"
         :customClasses="{
           'error': this.$v['userModel'].phone.$dirty
             && this.$v['userModel'].phone.$invalid
