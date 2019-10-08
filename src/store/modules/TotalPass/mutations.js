@@ -26,7 +26,7 @@ export default {
     data.geonames.forEach((element) => {
       state.brazilianStates.push({
         name: element.adminCodes1.ISO3166_2,
-        value: element.adminCodes1.ISO3166_2.toLowerCase(),
+        value: element.adminCodes1.ISO3166_2,
       });
     });
   },
