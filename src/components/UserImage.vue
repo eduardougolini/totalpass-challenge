@@ -46,9 +46,11 @@ export default {
 <style scoped>
   .content {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     padding-top: 30px;
+    width: 80%;
+    margin: auto;
   }
 
   .user-image {
@@ -68,11 +70,11 @@ export default {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: bold;
-    font-size: 12px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 19px;
     color: #00BA9F;
     border-radius: 50px;
     height: 40px;
-    padding: 8px 15px;
+    padding: 10px 32px;
   }
 </style>
