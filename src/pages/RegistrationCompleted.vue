@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="registration-completed">
         <RegisterHeader />
         <RegistrationCompletedInfo />
         <FooterSteps :actualStep="3" />

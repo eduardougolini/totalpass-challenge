@@ -89,6 +89,7 @@ export default {
 <style scoped>
   .slider {
     max-width: 415px;
+    margin: auto;
   }
 
   .slide-box {

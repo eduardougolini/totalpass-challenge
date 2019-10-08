@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="address-register">
         <RegisterHeader :subtitle="'Endereço'" :backButton="true" />
         <RegisterAddressForm />
         <FooterSteps :actualStep="2" />

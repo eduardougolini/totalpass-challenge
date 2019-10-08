@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="basic-register">
         <RegisterHeader :subtitle="'Dados Pessoais'" />
         <RegisterDataForm />
         <FooterSteps :actualStep="1" />

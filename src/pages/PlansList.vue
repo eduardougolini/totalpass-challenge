@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="plans-list">
         <RegisterHeader :subtitle="'Planos'" :backButton="true" />
         <PlanChooser />
         <FooterSteps :actualStep="3" />
