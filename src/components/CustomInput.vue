@@ -120,6 +120,12 @@ export default {
     box-sizing: border-box;
   }
 
+  input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 40px;
+  }
+
   input:required,
   select:required {
     border-bottom: 1px solid #222222;
