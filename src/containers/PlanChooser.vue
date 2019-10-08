@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div>
+    <div style="margin-bottom: 15px;">
       <div class="plan-info">
         <p>Escolha seu plano</p>
       </div>
@@ -30,7 +30,6 @@ export default {
     background-color: #F7FAFA;
     padding-top: 30px;
     padding-bottom: 15px;
-    height: calc(100vh - 165px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

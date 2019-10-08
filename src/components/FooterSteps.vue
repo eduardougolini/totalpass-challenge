@@ -32,8 +32,6 @@ export default {
     justify-content: center;
     margin-top: 15px;
     margin-bottom: 15px;
-    position: absolute;
-    bottom: 0;
     width: 100%;
   }
 
