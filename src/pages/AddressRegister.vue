@@ -1,9 +1,9 @@
 <template>
-    <div class="address-register">
-        <RegisterHeader :subtitle="'Endereço'" :backButton="true" />
-        <RegisterAddressForm />
-        <FooterSteps :actualStep="2" />
-    </div>
+  <div class="address-register">
+    <RegisterHeader :subtitle="'Endereço'" :backButton="true" />
+    <RegisterAddressForm />
+    <FooterSteps :actualStep="2" />
+  </div>
 </template>
 
 <script>
@@ -12,11 +12,11 @@ import RegisterAddressForm from '@/containers/RegisterAddressForm';
 import FooterSteps from '@/components/FooterSteps';
 
 export default {
-    name: 'AddressRegister',
-    components: {
-        RegisterHeader,
-        RegisterAddressForm,
-        FooterSteps
-    }
-}
+  name: 'AddressRegister',
+  components: {
+    RegisterHeader,
+    RegisterAddressForm,
+    FooterSteps,
+  },
+};
 </script>

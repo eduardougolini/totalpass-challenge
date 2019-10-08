@@ -1,9 +1,9 @@
 <template>
-    <div class="plans-list">
-        <RegisterHeader :subtitle="'Planos'" :backButton="true" />
-        <PlanChooser />
-        <FooterSteps :actualStep="3" />
-    </div>
+  <div class="plans-list">
+    <RegisterHeader :subtitle="'Planos'" :backButton="true" />
+    <PlanChooser />
+    <FooterSteps :actualStep="3" />
+  </div>
 </template>
 
 <script>
@@ -15,19 +15,19 @@ import FooterSteps from '@/components/FooterSteps';
 import { TOTAL_PASS } from '@/store/modules';
 
 export default {
-    name: 'PlansList',
-    components: {
-        RegisterHeader,
-        PlanChooser,
-        FooterSteps
-    },
-    async beforeMount() {
-        await this.loadGymGifs();
-    },
-    methods: {
-        ...mapActions(TOTAL_PASS, [
-            'loadGymGifs'
-        ])
-    }
-}
+  name: 'PlansList',
+  components: {
+    RegisterHeader,
+    PlanChooser,
+    FooterSteps,
+  },
+  async beforeMount() {
+    await this.loadGymGifs();
+  },
+  methods: {
+    ...mapActions(TOTAL_PASS, [
+      'loadGymGifs',
+    ]),
+  },
+};
 </script>

@@ -1,9 +1,9 @@
 <template>
-    <div class="registration-completed">
-        <RegisterHeader />
-        <RegistrationCompletedInfo />
-        <FooterSteps :actualStep="3" />
-    </div>
+  <div class="registration-completed">
+    <RegisterHeader />
+    <RegistrationCompletedInfo />
+    <FooterSteps :actualStep="3" />
+  </div>
 </template>
 
 <script>
@@ -12,11 +12,11 @@ import FooterSteps from '@/components/FooterSteps';
 import RegistrationCompletedInfo from '@/components/RegistrationCompletedInfo';
 
 export default {
-    name: 'RegistrationCompleted',
-    components: {
-        RegisterHeader,
-        FooterSteps,
-        RegistrationCompletedInfo
-    }
-}
+  name: 'RegistrationCompleted',
+  components: {
+    RegisterHeader,
+    FooterSteps,
+    RegistrationCompletedInfo,
+  },
+};
 </script>
