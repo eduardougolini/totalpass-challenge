@@ -104,6 +104,7 @@ export default {
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: normal;
+    width: 80%;
   }
 
   input,
@@ -112,11 +113,11 @@ export default {
     line-height: 20px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 300px;
+    width: 100%;
     border: none;
     border-bottom: 1px solid #A5B7B8;
     background-color: #F7FAFA;
-    box-sizing: content-box;
+    box-sizing: border-box;
   }
 
   input:required,
@@ -175,7 +176,7 @@ export default {
   .bar {
     position: relative;
     display: block;
-    width: 300px;
+    width: 100%;
   }
 
   .bar:before,
@@ -208,7 +209,7 @@ export default {
 
   input:focus ~ .bar:before,
   select:focus ~ .bar:before {
-    width: 55%;
+    width: 50%;
   }
 
   input:focus ~ .bar:after,
