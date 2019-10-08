@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import ViacepService from '@/services/viacep.service';
 import GiphyService from '@/services/giphy.service';
 import GeonamesService from '@/services/geonames.service';
