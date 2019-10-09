@@ -134,6 +134,7 @@ export default {
   input:focus,
   select:focus {
     outline: none;
+    border: none;
   }
 
   input:required ~ label,
