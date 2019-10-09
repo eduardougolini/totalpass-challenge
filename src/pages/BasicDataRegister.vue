@@ -20,3 +20,16 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+  .basic-register {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .basic-register > div {
+    flex: 1;
+  }
+</style>

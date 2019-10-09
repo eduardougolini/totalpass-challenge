@@ -135,18 +135,16 @@ export default {
     },
   },
   validations: {
-    // userModel: {
-      name: {
-        required,
-      },
-      cpf: {
-        required,
-        cpfValidator,
-      },
-      phone: {
-        required,
-      },
-    // },
+    name: {
+      required,
+    },
+    cpf: {
+      required,
+      cpfValidator,
+    },
+    phone: {
+      required,
+    },
   },
 };
 </script>

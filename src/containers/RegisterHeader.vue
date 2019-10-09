@@ -48,6 +48,7 @@ export default {
     position: relative;
     text-align: center;
     justify-content: center;
+    max-height: 60px;
   }
 
   .back-button {

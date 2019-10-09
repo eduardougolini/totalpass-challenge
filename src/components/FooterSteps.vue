@@ -30,8 +30,9 @@ export default {
   .footer {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    align-items: center;
+    min-height: 30px;
+    max-height: 30px;
     width: 100%;
   }
 
