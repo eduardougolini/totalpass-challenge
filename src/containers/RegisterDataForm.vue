@@ -103,7 +103,7 @@ export default {
       stateCpf: state => state.userData.cpf,
       statePhone: state => state.userData.phone,
       stateBirth: state => state.userData.birth,
-      stateBirth: state => state.userData.birth,
+      stateGender: state => state.userData.gender,
     })
   },
   mounted() {
