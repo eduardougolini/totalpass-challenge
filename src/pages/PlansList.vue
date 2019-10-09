@@ -31,3 +31,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .plans-list {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .plans-list > div {
+    flex: 1;
+  }
+</style>

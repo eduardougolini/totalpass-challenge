@@ -20,3 +20,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .address-register {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .address-register > div {
+    flex: 1;
+  }
+</style>

@@ -20,3 +20,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .registration-completed {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .registration-completed > div {
+    flex: 1;
+  }
+</style>

@@ -20,7 +20,6 @@ export default {
     padding-bottom: 15px;
     display: flex;
     justify-content: center;
-    height: calc(100vh - 125px);
   }
 
   .info-box {
