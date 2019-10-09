@@ -99,19 +99,19 @@ export default {
   },
   computed: {
     ...mapState(TOTAL_PASS, {
-      stateName: state => state.userData.name,
-      stateCpf: state => state.userData.cpf,
-      statePhone: state => state.userData.phone,
-      stateBirth: state => state.userData.birth,
-      stateGender: state => state.userData.gender,
+      nameState: state => state.userData.name,
+      cpfState: state => state.userData.cpf,
+      phoneState: state => state.userData.phone,
+      birthState: state => state.userData.birth,
+      genderState: state => state.userData.gender,
     })
   },
   mounted() {
-    this.name = this.stateName;
-    this.cpf = this.stateCpf;
-    this.phone = this.statePhone;
-    this.birth = this.stateBirth;
-    this.gender = this.stateGender;
+    this.name = this.nameState;
+    this.cpf = this.cpfState;
+    this.phone = this.phoneState;
+    this.birth = this.birthState;
+    this.gender = this.genderState;
   },
   methods: {
     ...mapActions(TOTAL_PASS, [

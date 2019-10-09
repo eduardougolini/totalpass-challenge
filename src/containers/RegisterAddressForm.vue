@@ -45,7 +45,7 @@
         }"
       />
       <CustomInput
-        v-model="$v.state.model"
+        v-model="$v.state.$model"
         :name="'Estado'"
         :customClasses="{
           'error': $v.state.$dirty
@@ -99,6 +99,10 @@ export default {
     
   },
   async created() {
+    if (this.brazilianStates.length < 2) {
+      await this.loadBrazilianStates();
+    }
+    
     this.cep = this.cepState;
     this.address = this.addressState;
     this.number = this.numberState;
@@ -106,10 +110,6 @@ export default {
     this.district = this.districtState;
     this.city = this.cityState;
     this.state = this.stateState;
-
-    if (this.brazilianStates.length < 2) {
-      await this.loadBrazilianStates();
-    }
   },
   watch: {
     async cep(val) {
