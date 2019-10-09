@@ -63,7 +63,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import { required } from 'vuelidate/lib/validators';
+import { required, minLength } from 'vuelidate/lib/validators';
 
 import NextButton from '@/components/NextButton';
 import CustomInput from '@/components/CustomInput';
@@ -162,6 +162,7 @@ export default {
   validations: {
     cep: {
       required,
+      minLength: minLength(9),
     },
     address: {
       required,

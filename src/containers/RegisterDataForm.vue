@@ -52,7 +52,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import { required } from 'vuelidate/lib/validators';
+import { required, minLength } from 'vuelidate/lib/validators';
 
 import UserImage from '@/components/UserImage';
 import NextButton from '@/components/NextButton';
@@ -144,6 +144,7 @@ export default {
     },
     phone: {
       required,
+      minLength: minLength(15),
     },
   },
 };
