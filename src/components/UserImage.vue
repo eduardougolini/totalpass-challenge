@@ -58,6 +58,7 @@ export default {
     width: 73px;
     height: 73px;
     object-fit: scale-down;
+    image-orientation: from-image;
   }
 
   #send-user-image {
