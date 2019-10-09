@@ -28,7 +28,7 @@ export default {
     flex-direction: column;
     min-height: 100vh;
   }
-  
+
   .basic-register > div {
     flex: 1;
   }

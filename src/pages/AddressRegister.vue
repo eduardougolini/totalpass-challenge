@@ -27,7 +27,7 @@ export default {
     flex-direction: column;
     min-height: 100vh;
   }
-  
+
   .address-register > div {
     flex: 1;
   }

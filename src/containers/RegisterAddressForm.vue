@@ -97,13 +97,13 @@ export default {
       stateState: state => state.addressData.state,
       brazilianStates: state => state.brazilianStates,
     }),
-    
+
   },
   async created() {
     if (this.brazilianStates.length < 2) {
       await this.loadBrazilianStates();
     }
-    
+
     this.cep = this.cepState;
     this.address = this.addressState;
     this.number = this.numberState;
@@ -127,8 +127,8 @@ export default {
         this.district = cepInfo.bairro || '';
         this.city = cepInfo.localidade || '';
         this.state = cepInfo.uf || '';
-      };
-    }
+      }
+    },
   },
   methods: {
     ...mapActions(TOTAL_PASS, [

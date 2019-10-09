@@ -38,7 +38,7 @@ export default {
     flex-direction: column;
     min-height: 100vh;
   }
-  
+
   .plans-list > div {
     flex: 1;
   }

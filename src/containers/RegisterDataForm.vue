@@ -104,7 +104,7 @@ export default {
       phoneState: state => state.userData.phone,
       birthState: state => state.userData.birth,
       genderState: state => state.userData.gender,
-    })
+    }),
   },
   mounted() {
     this.name = this.nameState;
