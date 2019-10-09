@@ -1,9 +1,14 @@
 #!/usr/bin/env groovy
 
 stage('Preparando ambiente') {
-    sh 'npm install'
+    node {
+        checkout scm
+        sh 'npm install'
+    }
 }
 
 stage('Testes Jest') {
-    sh 'npm run test'
+    node {
+        sh 'npm run test'
+    }
 }
