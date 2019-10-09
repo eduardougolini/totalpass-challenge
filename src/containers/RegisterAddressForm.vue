@@ -4,6 +4,7 @@
       <CustomInput
         v-model="$v.cep.$model"
         :name="'CEP'"
+        :inputType="'tel'"
         :customClasses="{
           'error': $v.cep.$dirty
             && $v.cep.$invalid
