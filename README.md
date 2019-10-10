@@ -8,7 +8,7 @@
     <img width="300px" src="https://i.imgur.com/WxZBc2T.png">
 
     * Em seguida, clique no botão `Adicionar à Tela de Início`
-    <img width="300px" src="https://i.imgur.com/U7krT5H.png">
+    <img width="300px" src="https://imgur.com/K8kGY4K.png">
     
     * Agora, deve ter aparecido um atalho na sua tela inicial para acessar o site como um App.
     <img width="300px" src="https://imgur.com/2rJL5BP.png">
